@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>PageMind AI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  
+  <div class="header">
+    <div class="logo">
+      <div class="logo-mark">🧠</div>
+      <div class="logo-text">Page<span>Mind</span></div>
+    </div>
+    <div class="provider-badge">
+      <div class="dot"></div>
+      <span id="active-provider-name">Loading...</span>
+    </div>
+  </div>
+
+  <div class="page-info">
+    <img class="page-favicon" id="page-favicon" src="" alt="">
+    <div class="page-title" id="page-title">Loading...</div>
+    <div class="page-chars" id="page-chars" style="display:none"></div>
+  </div>
+
+  <div style="display:flex;flex-direction:column;flex:1;overflow:hidden;">
+
+    <div class="tabs">
+      <div class="tab active" data-tab="summarize">✦ Summarize</div>
+      <div class="tab" data-tab="qa">💬 Ask</div>
+    </div>
+
+    <div class="main" id="tab-summarize">
+      
+
+      <div class="no-keys-banner" id="no-keys-banner">
+        No API keys found. Open <code>config.js</code> and paste at least one key to get started.
+      </div>
+
+
+      <button class="btn-primary" id="summarize-btn">
+        <span>✦</span> Summarize This Page
+      </button>
+
+
+      <div class="loading" id="sum-loading">
+        <div class="spinner"></div>
+        <div class="loading-texts">
+          <div id="sum-loading-text">Analyzing page...</div>
+          <div class="loading-provider" id="sum-loading-provider"></div>
+        </div>
+      </div>
+
+
+      <div class="error-box" id="sum-error">
+        <div>⚠ Could not get a response</div>
+        <ul class="error-list" id="sum-error-list"></ul>
+      </div>
+
+
+      <div class="output-box" id="sum-output">
+        <div class="output-top">
+          <div class="output-label">Summary</div>
+          <button class="copy-btn" id="copy-sum-btn">Copy</button>
+        </div>
+        <div class="rendered" id="sum-text"></div>
+        <div class="provider-tag" id="sum-provider-tag"></div>
+      </div>
+
+    </div>
+
+
+    <div class="main" id="tab-qa" style="display:none">
+      
+
+      <div class="input-group">
+        <div class="input-label">Ask about this page</div>
+        <textarea 
+          class="qa-input" 
+          id="qa-input" 
+          placeholder="e.g. What is the main argument? Who is the author? (Ctrl+Enter to send)">
+        </textarea>
+        <button class="btn-ask" id="ask-btn">→ Get Answer</button>
+      </div>
+
+
+      <div class="loading" id="qa-loading">
+        <div class="spinner"></div>
+        <div class="loading-texts">
+          <div id="qa-loading-text">Finding answer...</div>
+          <div class="loading-provider" id="qa-loading-provider"></div>
+        </div>
+      </div>
+
+
+      <div class="error-box" id="qa-error">
+        <div>⚠ Could not get a response</div>
+        <ul class="error-list" id="qa-error-list"></ul>
+      </div>
+
+  
+      <div class="qa-history" id="qa-history"></div>
+
+    </div>
+
+  </div>
+
+  
+  <script src="config.js"></script>
+  <script src="popup.js"></script>
+
+</body>
+</html>
